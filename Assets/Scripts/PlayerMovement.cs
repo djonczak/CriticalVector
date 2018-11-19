@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerMove()
     {
-        if (distance >= 0.1f)
+        if (distance >= 0.1f && GameManager.instance.isPause == false)
         {
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerDash()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && timer > 0.5f)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && timer > 0.5f && GameManager.instance.isPause == false)
         {
             isDashing = true;
             StartCoroutine("EndDash");
