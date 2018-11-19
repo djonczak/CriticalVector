@@ -30,7 +30,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 foreach (Collider2D enemy in withinCircle)
                 {
-                    Debug.Log("Dostał");
                     enemy.GetComponent<EnemyHP>().TakeDamage(damage);
                 }
             }
