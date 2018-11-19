@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Options")]
-    public float playerSpeed;
+    public float playerWalkSpeed;
+    public float playerRunSpeed;
     public float dashSpeed;
     public float dashRange;
   //  public float minDashAmount;
@@ -14,11 +15,15 @@ public class PlayerMovement : MonoBehaviour
     private float timer = 0;
     private SpriteRenderer characterSprite;
     public bool isDashing;
-    public Vector3 mousePosition;
+    private Vector3 mousePosition;
+    private Animator anim;
+    public bool isFighting;
+    private float distance;
 
     void Start()
     {
         characterSprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -27,12 +32,30 @@ public class PlayerMovement : MonoBehaviour
         mousePosition.z = 0;
         PlayerMove();
         PlayerDash();
+        distance = Vector3.Distance(this.transform.position, mousePosition);
     }
 
     public void PlayerMove()
     {
-        transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerSpeed * Time.deltaTime);
+        if (isFighting)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerRunSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerWalkSpeed * Time.deltaTime);
+        //    anim.ResetTrigger("isRunning");
+            anim.ResetTrigger("isIdle");
+            anim.SetTrigger("isWalking");
+        }
 
+        if(distance <= 0.1f)
+        {
+          //  anim.ResetTrigger("isRunning");
+            anim.ResetTrigger("isWalking");
+            anim.SetTrigger("isIdle");
+        }
+       
         if (mousePosition.x > transform.position.x)
         {
             characterSprite.flipX = false;
@@ -54,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isDashing)
         {
-            float step = (playerSpeed * dashSpeed) * Time.deltaTime;
+            float step = (playerWalkSpeed * dashSpeed) * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, mousePosition, step / dashRange);
         }
         else
