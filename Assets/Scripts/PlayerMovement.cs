@@ -19,14 +19,16 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     public bool isFighting;
     private float distance;
+    Rigidbody2D body;
 
     void Start()
     {
         characterSprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        body = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
@@ -37,21 +39,27 @@ public class PlayerMovement : MonoBehaviour
 
     public void PlayerMove()
     {
-        if (isFighting)
+        if (distance >= 0.1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerRunSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerWalkSpeed * Time.deltaTime);
-        //    anim.ResetTrigger("isRunning");
-            anim.ResetTrigger("isIdle");
-            anim.SetTrigger("isWalking");
-        }
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerRunSpeed * Time.deltaTime);
+                    anim.ResetTrigger("isWalking");
+                    anim.ResetTrigger("isIdle");
+                    anim.SetTrigger("isRunning");
+                }
+                else
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerWalkSpeed * Time.deltaTime);
+                    anim.ResetTrigger("isRunning");
+                    anim.ResetTrigger("isIdle");
+                    anim.SetTrigger("isWalking");
+                }
+            }
 
         if(distance <= 0.1f)
         {
-          //  anim.ResetTrigger("isRunning");
+            anim.ResetTrigger("isRunning");
             anim.ResetTrigger("isWalking");
             anim.SetTrigger("isIdle");
         }

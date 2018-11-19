@@ -4,34 +4,19 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-
-    public float interpVelocity;
-    public float minDistance;
-    public float followDistance;
-    public GameObject target;
-    public Vector3 offset;
-    Vector3 targetPos;
-    // Use this for initialization
-    void Start()
-    {
-        targetPos = transform.position;
-    }
-
+    public Transform myTarget;
+    public Vector3 mapMin;
+    public Vector3 mapMax;
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (target)
+        if (myTarget != null)
         {
-            Vector3 posNoZ = transform.position;
-            posNoZ.z = target.transform.position.z;
+            Vector3 targPos = myTarget.position;
 
-            Vector3 targetDirection = (target.transform.position - posNoZ);
+            transform.position = targPos;
 
-            interpVelocity = targetDirection.magnitude * 5f;
-
-            targetPos = transform.position + (targetDirection.normalized * interpVelocity * Time.deltaTime);
-
-            transform.position = Vector3.Lerp(transform.position, targetPos + offset, 0.25f);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, mapMin.x, mapMax.x), Mathf.Clamp(transform.position.y, mapMin.y, mapMax.y), Mathf.Clamp(transform.position.z, mapMin.z, mapMax.z));
 
         }
     }
