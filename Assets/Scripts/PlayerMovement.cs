@@ -64,14 +64,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 characterSprite.flipX = true;
             }
-
-
-            if (distance <= 0.1f)
-            {
-                anim.ResetTrigger("isRunning");
-                anim.ResetTrigger("isWalking");
-                anim.SetTrigger("isIdle");
-            }
+        }
+        if (distance <= 0.1f)
+        {
+            anim.ResetTrigger("isRunning");
+            anim.ResetTrigger("isWalking");
+            anim.SetTrigger("isIdle");
         }
     }
 

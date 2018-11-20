@@ -10,7 +10,6 @@ public class EnemyAttack : MonoBehaviour
 
     private Collider2D[] withinCircle;
     private Animator anim;
-    private bool canAttack;
     float timer;
     public void Start()
     {
@@ -31,7 +30,6 @@ public class EnemyAttack : MonoBehaviour
             {
                 foreach (Collider2D player in withinCircle)
                 {
-                    canAttack = true;
                     Attack(player);
                 }
             }
@@ -40,16 +38,17 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack(Collider2D player)
     {
-        if (canAttack)
-        {
-            timer += Time.deltaTime;
-            if (timer >= 3f)
+            var distance = Vector3.Distance(transform.position, player.transform.position);
+            if (distance <= attackRadius)
             {
-                anim.SetTrigger("isAttack");
-                player.GetComponent<PlayerHP>().TakeDamage(damage);
-                canAttack = false;
-                timer = 0f;
+                timer += Time.deltaTime;
+                if (timer >= 3f)
+                {
+                    anim.SetTrigger("isAttack");
+                    player.GetComponent<PlayerHP>().TakeDamage(damage);
+                    timer = 0f;
+                }
             }
-        }
+        
     }
 }
