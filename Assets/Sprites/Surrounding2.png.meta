@@ -34,6 +34,7 @@ TextureImporter:
     21300058: GroundLight
     21300060: Neon
     21300062: Roof4
+    21300064: Rooftop2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -222,7 +223,7 @@ TextureImporter:
         x: 258
         y: 4
         width: 126
-        height: 83
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -744,13 +745,33 @@ TextureImporter:
         width: 92
         height: 37
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: b36ac566903c2b14eaa602aa7b4f9873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rooftop2
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 50
+        width: 126
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d6ea532c8cf084486ec263456cdc3a
       vertices: []
       indices: 
       edges: []

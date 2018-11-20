@@ -40,7 +40,6 @@ public class EnemyHP : MonoBehaviour, IDamage
         if(characterHP <= 0)
         {
             isDead = true;
-            GameManager.instance.virusKill++;
             StartCoroutine("Death", 0.8f);
         }//"If everyone is complaining, then it's not broken" - Bethesda
     }
@@ -49,6 +48,7 @@ public class EnemyHP : MonoBehaviour, IDamage
     {
         anim.SetTrigger("isDeath");
         yield return new WaitForSeconds(time);
+        GameManager.instance.virusKill++;
         gameObject.SetActive(false);
     }
 

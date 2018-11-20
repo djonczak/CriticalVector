@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(virusKill == 5)
+        if(virusKill == 4)
         {
             foreach(GameObject spawn in wirusSpawn)
             {

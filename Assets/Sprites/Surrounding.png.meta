@@ -81,6 +81,7 @@ TextureImporter:
     21300152: Surrounding_2
     21300154: NeonBuilding5
     21300156: NeonBuilding6
+    21300158: Surrounding_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -207,9 +208,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 39
-        y: 125
+        y: 161
         width: 18
-        height: 48
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,9 +228,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 63
-        y: 125
+        y: 161
         width: 22
-        height: 48
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -407,9 +408,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 227
-        y: 140
+        y: 139
         width: 9
-        height: 24
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -746,10 +747,10 @@ TextureImporter:
       name: Medic1
       rect:
         serializedVersion: 2
-        x: 312
-        y: 52
-        width: 16
-        height: 14
+        x: 311
+        y: 51
+        width: 17
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1346,10 +1347,10 @@ TextureImporter:
       name: VRZIdle
       rect:
         serializedVersion: 2
-        x: 250
-        y: 85
-        width: 20
-        height: 40
+        x: 247
+        y: 83
+        width: 23
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1709,7 +1710,7 @@ TextureImporter:
         x: 143
         y: 61
         width: 78
-        height: 13
+        height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1738,6 +1739,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 774e3c05f4e69634aa66acf22a0f3c58
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Surrounding_3
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 125
+        width: 7
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7839d77c7ac2eaf43a91571e5d8f82d3
       vertices: []
       indices: 
       edges: []
