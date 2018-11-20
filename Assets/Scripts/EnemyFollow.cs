@@ -12,7 +12,7 @@ public class EnemyFollow : MonoBehaviour
     private SpriteRenderer character;
     private Collider2D[] withinCircle;
 
-    public Transform player;
+    private Transform player;
 
     private void Start()
     {

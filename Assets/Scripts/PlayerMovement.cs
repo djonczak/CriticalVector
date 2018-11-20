@@ -41,36 +41,37 @@ public class PlayerMovement : MonoBehaviour
     {
         if (distance >= 0.1f && GameManager.instance.isPause == false)
         {
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerRunSpeed * Time.deltaTime);
-                    anim.ResetTrigger("isWalking");
-                    anim.ResetTrigger("isIdle");
-                    anim.SetTrigger("isRunning");
-                }
-                else
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerWalkSpeed * Time.deltaTime);
-                    anim.ResetTrigger("isRunning");
-                    anim.ResetTrigger("isIdle");
-                    anim.SetTrigger("isWalking");
-                }
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerRunSpeed * Time.deltaTime);
+                anim.ResetTrigger("isWalking");
+                anim.ResetTrigger("isIdle");
+                anim.SetTrigger("isRunning");
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, mousePosition, playerWalkSpeed * Time.deltaTime);
+                anim.ResetTrigger("isRunning");
+                anim.ResetTrigger("isIdle");
+                anim.SetTrigger("isWalking");
             }
 
-        if(distance <= 0.1f)
-        {
-            anim.ResetTrigger("isRunning");
-            anim.ResetTrigger("isWalking");
-            anim.SetTrigger("isIdle");
-        }
-       
-        if (mousePosition.x > transform.position.x)
-        {
-            characterSprite.flipX = false;
-        }
-        else
-        {
-            characterSprite.flipX = true;
+            if (mousePosition.x > transform.position.x)
+            {
+                characterSprite.flipX = false;
+            }
+            else
+            {
+                characterSprite.flipX = true;
+            }
+
+
+            if (distance <= 0.1f)
+            {
+                anim.ResetTrigger("isRunning");
+                anim.ResetTrigger("isWalking");
+                anim.SetTrigger("isIdle");
+            }
         }
     }
 

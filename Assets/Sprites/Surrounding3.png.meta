@@ -22,6 +22,8 @@ TextureImporter:
     21300034: Exterior5
     21300036: Exterior6
     21300038: BlockRoof
+    21300040: Surrounding3_0
+    21300042: Surrounding3_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -492,13 +494,53 @@ TextureImporter:
         width: 256
         height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 65ee090baeb27f94c9fb242379cf3e8a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Surrounding3_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 165
+        width: 59
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9dafebdf6d309469940cf5e5aa4046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Surrounding3_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 152
+        width: 26
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2400830222bf18948889178f3b806957
       vertices: []
       indices: 
       edges: []

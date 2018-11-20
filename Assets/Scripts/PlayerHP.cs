@@ -8,6 +8,7 @@ public class PlayerHP : MonoBehaviour, IDamage
     private SpriteRenderer playerColor;
     public Color playerNormalState;
     private Color playerDamage = Color.red;
+    bool isDamaged;
 
     void Start()
     {
@@ -15,10 +16,22 @@ public class PlayerHP : MonoBehaviour, IDamage
         playerNormalState = playerColor.color;
     }
 
+    public void Update()
+    {
+        if (isDamaged)
+        {
+            playerColor.color = Color.Lerp(playerDamage, playerNormalState, Time.deltaTime);
+        }
+        else
+        {
+            playerColor.color = Color.Lerp(playerNormalState, playerDamage, Time.deltaTime);
+        }
+    }
+
     public void TakeDamage(float amount)
     {
         playerHP -= amount;
-        StartCoroutine("DamageEffect", 2f);
+        StartCoroutine("DamageEffect", 1f);
         if (playerHP <= 0)
         {
             gameObject.SetActive(false);
@@ -28,8 +41,8 @@ public class PlayerHP : MonoBehaviour, IDamage
 
     IEnumerator DamageEffect(float time)
     {
-        playerColor.color = Color.Lerp(playerDamage, playerNormalState, Time.deltaTime);
+        isDamaged = true;
         yield return new WaitForSeconds(time);
-        playerColor.color = Color.Lerp(playerNormalState, playerDamage, Time.deltaTime);
+        isDamaged = false;
     }
 }
