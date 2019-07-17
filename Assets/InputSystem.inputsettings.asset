@@ -15,7 +15,6 @@ MonoBehaviour:
   m_SupportedDevices:
   - DualShockGamepad
   - XInputController
-  - Keyboard
   m_UpdateMode: 0
   m_ActionUpdateMode: 0
   m_TimesliceEvents: 1

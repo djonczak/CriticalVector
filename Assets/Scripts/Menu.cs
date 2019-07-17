@@ -11,7 +11,6 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        GameManager.instance.isPause = true;
         StartCoroutine("Blink");
     }
 
@@ -26,14 +25,14 @@ public class Menu : MonoBehaviour
         {
             space.SetActive(true);
         }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-
-            StopCoroutine("Blink");
-            StartCoroutine("GameStart");
-        }
     }
+
+    public void ExitMenu()
+    {
+        StopCoroutine("Blink");
+        StartCoroutine("GameStart");
+    }
+
 
     IEnumerator Blink()
     {
@@ -47,9 +46,7 @@ public class Menu : MonoBehaviour
     IEnumerator GameStart()
     {
         yield return new WaitForSeconds(1f);
-        GameManager.instance.isPause = false;
         menu.SetActive(false);
         this.enabled = false;
-
     }
 }
