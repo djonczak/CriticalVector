@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerMovement movement;
     private PlayerAttack playerAttack;
+    private PhoneUI phoneControl;
 
     InputManager controls;
 
@@ -19,12 +20,15 @@ public class PlayerController : MonoBehaviour
 
         controls.Gameplay.Movement.performed += inp => movement.playerMove = inp.ReadValue<Vector2>();
         controls.Gameplay.Movement.canceled += inp => movement.playerMove = Vector2.zero;
+
+        controls.Gameplay.Pause.performed += inp => phoneControl.ShowPhone();
     }
 
     void Start()
     {
         movement = GetComponent<PlayerMovement>();
         playerAttack = GetComponent<PlayerAttack>();
+        phoneControl = GetComponent<PhoneUI>();
     }
 
     private void OnEnable()

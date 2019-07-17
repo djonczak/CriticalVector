@@ -1,42 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 public class PhoneUI : MonoBehaviour
 {
     public GameObject phoneMenu;
+    public GameObject menu;
     public GameObject contactMenu;
     public GameObject profileMenu;
     bool isPhone = false;
+    public Button btn;
+    private EventSystem es;
 
     void Start()
     {
         phoneMenu.SetActive(false);
         contactMenu.SetActive(false);
         profileMenu.SetActive(false);
+        es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
     }
 
-   
-    void Update()
+    public void ShowPhone()
     {
-        PlayerInput();
-        Show();
-    }
-
-    void PlayerInput()
-    {
-        if (Input.GetKeyUp(KeyCode.P))
-        {
-            isPhone = !isPhone;
-            GameManager.instance.isPause = isPhone;
-        }
-    }
-
-    void Show()
-    {
+        isPhone = !isPhone;
         if (isPhone)
         {
             phoneMenu.SetActive(true);
+            es.SetSelectedGameObject(btn.gameObject);
+            btn.Select();
         }
         else
         {
@@ -46,31 +40,15 @@ public class PhoneUI : MonoBehaviour
 
     public void GoToContact()
     {
-        phoneMenu.SetActive(false);
+        menu.SetActive(false);
         contactMenu.SetActive(true);
 
     }
 
     public void GoToProfiler()
     {
-        phoneMenu.SetActive(false);
+        menu.SetActive(false);
         profileMenu.SetActive(true);
     }
 
-    public void Back()
-    {
-        profileMenu.SetActive(true);
-        contactMenu.SetActive(false);
-        profileMenu.SetActive(false);
-    }
-
-    public void LinkedIn()
-    {
-        Application.OpenURL("https://pl.linkedin.com/in/dawid-jonczak-725553157");
-    }
-
-    public void Git()
-    {
-        Application.OpenURL("https://github.com/Sanchez4561");
-    }
 }

@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public bool isPause;
     public int virusKill;
     public Text missionInfo;
 
