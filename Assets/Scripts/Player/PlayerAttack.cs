@@ -5,11 +5,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     public float damage;
-    public float attackRadius;
-    public LayerMask enemyLayer;
     private Animator anim;
     private PlayerMovement playerMovement;
-    private Collider2D[] withinCircle;
     int i=0;
     bool canAttack = true;
 
@@ -31,10 +28,6 @@ public class PlayerAttack : MonoBehaviour
             canAttack = false;
             Debug.Log(canAttack);
         }
-        else
-        {
-            Debug.Log("Nie moze");
-        }
     }
 
     public void EndAttack()
@@ -46,5 +39,14 @@ public class PlayerAttack : MonoBehaviour
         {
             i = 0;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+            if (collision.tag == "Enemy")
+            {
+                Debug.Log("ciach");
+                collision.GetComponent<IDamage>().TakeDamage(damage);
+            }
     }
 }

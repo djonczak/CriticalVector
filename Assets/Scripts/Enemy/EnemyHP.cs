@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHP : MonoBehaviour, IDamage
 {
     public ParticleSystem damage;
-    public float characterHP;
+    public float maxHP;
+    private float currentHP;
+    public Image hpBar;
     private Animator anim;
     public bool isDead;
     bool isDamaged;
@@ -18,6 +21,7 @@ public class EnemyHP : MonoBehaviour, IDamage
     {
         anim = GetComponent<Animator>();
         enemyColor = GetComponent<SpriteRenderer>();
+        currentHP = maxHP;
     }
 
     public void Update()
@@ -34,14 +38,19 @@ public class EnemyHP : MonoBehaviour, IDamage
 
     public void TakeDamage(float amount)
     {
-        damage.Play();
-        characterHP -= amount;
-        StartCoroutine("DamageEffect", 0.5f);
-        if(characterHP <= 0)
+        if (isDamaged == false)
         {
-            isDead = true;
-            StartCoroutine("Death", 0.8f);
-        }//"If everyone is complaining, then it's not broken" - Bethesda
+            damage.Play();
+            currentHP -= amount;
+            hpBar.fillAmount = currentHP / maxHP;
+            StartCoroutine("DamageEffect", 0.5f);
+            if (currentHP <= 0)
+            {
+                GetComponent<Rigidbody2D>().isKinematic = true;
+                isDead = true;
+                StartCoroutine("Death", 0.8f);
+            }
+        }
     }
 
     IEnumerator Death(float time)
@@ -58,4 +67,6 @@ public class EnemyHP : MonoBehaviour, IDamage
         yield return new WaitForSeconds(time);
         isDamaged = false;
     }
+
+
 }

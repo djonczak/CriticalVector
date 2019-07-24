@@ -30,7 +30,9 @@ public class PhoneUI : MonoBehaviour
         {
             phoneMenu.SetActive(true);
             es.SetSelectedGameObject(btn.gameObject);
-            btn.Select();
+            es.SetSelectedGameObject(null);
+            es.SetSelectedGameObject(es.firstSelectedGameObject);
+        //    btn.Select();
         }
         else
         {

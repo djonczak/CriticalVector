@@ -118,7 +118,7 @@ TextureImporter:
     second: Melee
   - first:
       213: 8586885197115800619
-    second: UI_4
+    second: BulletSkill
   - first:
       213: 8598741497005899431
     second: HPBar1Clip1
@@ -469,7 +469,7 @@ TextureImporter:
         serializedVersion: 2
         x: 209
         y: 128
-        width: 50
+        width: 26
         height: 6
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -490,7 +490,7 @@ TextureImporter:
         serializedVersion: 2
         x: 210
         y: 121
-        width: 48
+        width: 24
         height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -947,7 +947,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_4
+      name: BulletSkill
       rect:
         serializedVersion: 2
         x: 79
@@ -1144,7 +1144,7 @@ TextureImporter:
         width: 12
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1165,7 +1165,7 @@ TextureImporter:
         width: 13
         height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

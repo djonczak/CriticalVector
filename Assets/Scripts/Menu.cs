@@ -2,50 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Menu : MonoBehaviour
 {
-    public GameObject space;
+    public Button startButton;
     public GameObject menu;
-    bool isBlink;
+    private EventSystem es;
 
     void Start()
     {
         StartCoroutine("Blink");
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (isBlink)
-        {
-            space.SetActive(false);
-        }
-        else
-        {
-            space.SetActive(true);
-        }
+        EventSystem es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+        es.SetSelectedGameObject(null);
+        es.SetSelectedGameObject(es.firstSelectedGameObject);
     }
 
     public void ExitMenu()
     {
         StopCoroutine("Blink");
-        StartCoroutine("GameStart");
+        GameStart();
     }
-
 
     IEnumerator Blink()
     {
-        isBlink = false;
+        startButton.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
-        isBlink = true;
+        startButton.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
         StartCoroutine("Blink");
     }
 
-    IEnumerator GameStart()
+    void GameStart()
     {
-        yield return new WaitForSeconds(1f);
         menu.SetActive(false);
         this.enabled = false;
     }

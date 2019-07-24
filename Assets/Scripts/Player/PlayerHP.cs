@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class PlayerHP : MonoBehaviour, IDamage
 {
-    public float playerHP;
+    [SerializeField] private int playerHP = 4;
     private SpriteRenderer playerColor;
+    [SerializeField] private GameObject[] hpBars;
     public Color playerNormalState;
     private Color playerDamage = Color.red;
-    bool isDamaged;
+    bool isDamaged = false;
+    private int i = -1;
 
     void Start()
     {
         playerColor = GetComponent<SpriteRenderer>();
         playerNormalState = playerColor.color;
+        foreach(GameObject bar in hpBars)
+        {
+            bar.GetComponent<Animator>().enabled = false;
+        }
     }
 
     public void Update()
@@ -30,7 +36,10 @@ public class PlayerHP : MonoBehaviour, IDamage
 
     public void TakeDamage(float amount)
     {
-        playerHP -= amount;
+        i++;
+        hpBars[i].GetComponent<Animator>().enabled = true;
+        playerHP--;
+
         StartCoroutine("DamageEffect", 1f);
         if (playerHP <= 0)
         {

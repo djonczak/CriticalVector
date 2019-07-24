@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             {
                 spawn.SetActive(false);
             }
-            missionInfo.text = "Press P to profile";
+            missionInfo.text = "Thats it for now.";
         }
     }
 }
