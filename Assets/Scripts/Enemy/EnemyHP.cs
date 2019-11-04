@@ -5,68 +5,48 @@ using UnityEngine.UI;
 
 public class EnemyHP : MonoBehaviour, IDamage
 {
-    public ParticleSystem damage;
     public float maxHP;
+    [SerializeField]
     private float currentHP;
     public Image hpBar;
     private Animator anim;
     public bool isDead;
-    bool isDamaged;
 
-    private SpriteRenderer enemyColor;
-    public Color enemyNormalState;
-    private Color enemyDamage = Color.red;
+    bool isDamaged;
 
     public void Start()
     {
         anim = GetComponent<Animator>();
-        enemyColor = GetComponent<SpriteRenderer>();
         currentHP = maxHP;
-    }
-
-    public void Update()
-    {
-        if (isDamaged)
-        {
-            enemyColor.color = Color.Lerp(enemyDamage, enemyNormalState, Time.deltaTime);
-        }
-        else
-        {
-            enemyColor.color = Color.Lerp(enemyNormalState, enemyDamage, Time.deltaTime);
-        }
     }
 
     public void TakeDamage(float amount)
     {
         if (isDamaged == false)
         {
-            damage.Play();
             currentHP -= amount;
             hpBar.fillAmount = currentHP / maxHP;
-            StartCoroutine("DamageEffect", 0.5f);
+            StartCoroutine("DamageCooldown", 0.5f);
+            GetComponent<IEffect>().ShowEffect();
             if (currentHP <= 0)
             {
                 GetComponent<Rigidbody2D>().isKinematic = true;
                 isDead = true;
-                StartCoroutine("Death", 0.8f);
+                anim.SetTrigger("isDeath");
             }
         }
     }
 
-    IEnumerator Death(float time)
+    public void Death()
     {
-        anim.SetTrigger("isDeath");
-        yield return new WaitForSeconds(time);
         GameManager.instance.virusKill++;
         gameObject.SetActive(false);
     }
 
-    IEnumerator DamageEffect(float time)
+    IEnumerator DamageCooldown(float time)
     {
         isDamaged = true;
         yield return new WaitForSeconds(time);
         isDamaged = false;
     }
-
-
 }

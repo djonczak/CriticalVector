@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    public float durationTime;
+
     private void OnEnable()
     {
-        StartCoroutine("Cooldown",2f);
+        StartCoroutine("Cooldown", durationTime);
     }
 
     IEnumerator Cooldown(float time)

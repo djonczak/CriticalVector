@@ -5,3 +5,8 @@ public interface IDamage
 {
     void TakeDamage(float amount);
 }
+
+public interface IEffect
+{
+    void ShowEffect();
+}

@@ -21,7 +21,8 @@ public class Menu : MonoBehaviour
     public void ExitMenu()
     {
         StopCoroutine("Blink");
-        GameStart();
+        menu.SetActive(false);
+        this.enabled = false;
     }
 
     IEnumerator Blink()
@@ -33,9 +34,4 @@ public class Menu : MonoBehaviour
         StartCoroutine("Blink");
     }
 
-    void GameStart()
-    {
-        menu.SetActive(false);
-        this.enabled = false;
-    }
 }

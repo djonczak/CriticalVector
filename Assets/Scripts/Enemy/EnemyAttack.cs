@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public float damage;
+    [Header("Melee Attack Settings")]
+    public float attackDamage;
+    public float attackSpeed;
     public float attackRadius;
-    public LayerMask playerLayer;
+    public GameObject player;
 
-    private Collider2D[] withinCircle;
     private Animator anim;
     float timer;
+
     public void Start()
     {
         anim = GetComponent<Animator>();
@@ -18,37 +20,24 @@ public class EnemyAttack : MonoBehaviour
 
     public void Update()
     {
-        CheckingPlayer();
+        Attack();
     }
 
-    private void CheckingPlayer()
+    private void Attack()
     {
         if (GetComponent<EnemyHP>().isDead == false)
         {
-            withinCircle = Physics2D.OverlapCircleAll(transform.position, attackRadius, playerLayer);
-            if (withinCircle.Length > 0)
-            {
-                foreach (Collider2D player in withinCircle)
-                {
-                    Attack(player);
-                }
-            }
-        }
-    }
-
-    private void Attack(Collider2D player)
-    {
             var distance = Vector3.Distance(transform.position, player.transform.position);
             if (distance <= attackRadius)
             {
                 timer += Time.deltaTime;
-                if (timer >= 3f)
+                if (timer >= attackSpeed)
                 {
                     anim.SetTrigger("isAttack");
-                    player.GetComponent<PlayerHP>().TakeDamage(damage);
+                    player.GetComponent<PlayerHP>().TakeDamage(attackDamage);
                     timer = 0f;
                 }
             }
-        
+        }      
     }
 }
