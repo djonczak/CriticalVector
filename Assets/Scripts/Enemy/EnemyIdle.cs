@@ -5,15 +5,14 @@ using UnityEngine;
 public class EnemyIdle : MonoBehaviour
 {
     [Header("Idle Settings")]
-    public float eyesRange;
-    public LayerMask playerLayer;
+    [SerializeField] private float eyesRange = 0.85f;
+    [SerializeField] private LayerMask playerLayer = 8;
     public ParticleSystem spottedParticle;
-    [SerializeField]
-    private Collider2D[] withinCircle;
+    [SerializeField] private Collider2D[] withinCircle;
 
     private Transform player;
 
-    public void Update()
+    private void Update()
     {
         if (GetComponent<EnemyHP>().isDead == false)
         {
@@ -21,7 +20,7 @@ public class EnemyIdle : MonoBehaviour
         }
     }
 
-    void EnemySpotting()
+    private void EnemySpotting()
     {
         withinCircle = Physics2D.OverlapCircleAll(transform.position, eyesRange, playerLayer);
         if (withinCircle.Length > 0)

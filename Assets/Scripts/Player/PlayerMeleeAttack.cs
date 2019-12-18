@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
-    public float meleeDamage;
-    private PlayerMovement playerMovement;
-    int i = 0;
-    bool canAttack = true;
+    [SerializeField] private float meleeDamage = 1f;
 
-    private void Start()
+    private PlayerMovement playerMovement;
+    private int i = 0;
+    private bool canAttack = true;
+
+    private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
     }

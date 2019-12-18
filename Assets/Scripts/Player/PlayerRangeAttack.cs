@@ -5,15 +5,19 @@ using UnityEngine;
 public class PlayerRangeAttack : MonoBehaviour
 {
     [Header("Range Attack Settings")]
-    public float bulletMaxAmount;
-    public float bulletCurrentAmount;
+    [SerializeField] private float bulletMaxAmount = 5f;
+    [SerializeField] private float bulletCurrentAmount = 0f;
+    [SerializeField] private bool canShoot = true;
+
     private PlayerMovement playerMovement;
-    [SerializeField]
-    private bool canShoot = true;
+
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
 
     private void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
         bulletCurrentAmount = bulletMaxAmount;
     }
 

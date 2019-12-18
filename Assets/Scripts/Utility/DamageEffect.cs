@@ -5,25 +5,27 @@ using UnityEngine;
 public class DamageEffect : MonoBehaviour, IEffect
 {
     [Header("Damage effect options")]
-    public float effectDuration;
+    [SerializeField] private float effectDuration = 1f;
     public ParticleSystem damageParticle;
-    public Color normalColor;
+    [SerializeField] private Color normalColor;
 
-    [SerializeField]
-    private Color damageColor = Color.red;
-    [SerializeField]
-    private bool isDamaged, canSwitchColor;
+    [SerializeField] private Color damageColor = Color.red;
+    [SerializeField] private bool isDamaged, canSwitchColor;
 
     private SpriteRenderer sprite;
     private float t = 0f;
 
-    void Start()
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
         normalColor = sprite.color;
     }
 
-    public void Update()
+    private void Update()
     {
         if (canSwitchColor)
         {
@@ -40,7 +42,7 @@ public class DamageEffect : MonoBehaviour, IEffect
         StartCoroutine("EffectCooldown", effectDuration);
     }
 
-    IEnumerator EffectCooldown(float time)
+    private IEnumerator EffectCooldown(float time)
     {
         if (damageParticle != null)
         {

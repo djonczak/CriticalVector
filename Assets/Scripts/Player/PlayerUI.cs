@@ -11,7 +11,7 @@ public class PlayerUI : MonoBehaviour
     public GameObject[] hpBars;
     private int i = -1;
 
-    void Awake()
+    private void Awake()
     {
         if (instance == null)
         {

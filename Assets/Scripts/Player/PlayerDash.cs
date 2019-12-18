@@ -5,25 +5,21 @@ using UnityEngine;
 public class PlayerDash : MonoBehaviour
 {
     [Header("Player Dash Options")]
-    public float dashSpeed;
-    public float dashCooldown;
-    [SerializeField]
-    public float dashTime = 0.1f;
-    [SerializeField]
-    private bool canDash = true;
-    [SerializeField]
-    private bool isDashing = false;
-    [SerializeField]
+    [SerializeField] private float dashSpeed = 5f;
+    [SerializeField] private float dashCooldown = 2f;
+    [SerializeField] private float dashTime = 0.1f;
+    [SerializeField] private bool canDash = true;
+    [SerializeField] private bool isDashing = false;
+
     private Rigidbody2D rb;
-    [SerializeField]
     private Vector2 direction;
 
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Dash();
     }
@@ -32,7 +28,6 @@ public class PlayerDash : MonoBehaviour
     {
         if (canDash == true && isDashing == false)
         {
-            Debug.Log("Dash");
             isDashing = true;
             canDash = false;
             StartCoroutine("EndCooldown", dashTime);
@@ -41,7 +36,7 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
-    public void Dash()
+    private void Dash()
     {
         if (isDashing == true)
         {
@@ -50,13 +45,12 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
-    IEnumerator EndCooldown(float time)
+    private IEnumerator EndCooldown(float time)
     {
         yield return new WaitForSeconds(time);
         isDashing = false;
         GetComponent<PlayerMovement>().isFighting = false;
         yield return new WaitForSeconds(dashCooldown);
-        Debug.Log(".Can again");
         canDash = true;
     }
 }

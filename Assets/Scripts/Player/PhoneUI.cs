@@ -4,18 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-
 public class PhoneUI : MonoBehaviour
 {
     public GameObject phoneMenu;
     public GameObject menu;
     public GameObject contactMenu;
     public GameObject profileMenu;
-    bool isPhone = false;
     public Button btn;
-    private EventSystem es;
 
-    void Start()
+    private EventSystem es;
+    private bool isPhone = false;
+
+    private void Start()
     {
         phoneMenu.SetActive(false);
         contactMenu.SetActive(false);

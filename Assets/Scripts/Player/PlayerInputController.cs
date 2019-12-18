@@ -14,6 +14,13 @@ public class PlayerInputController : MonoBehaviour
 
     private void Awake()
     {
+        playerMovement = GetComponent<PlayerMovement>();
+        playerAttack = GetComponent<PlayerMeleeAttack>();
+        playerShoot = GetComponent<PlayerRangeAttack>();
+        // phoneControl = GetComponent<PhoneUI>();
+        playerDash = GetComponent<PlayerDash>();
+
+        //<----------- Set Controls ----------->
         controls = new PlayerInput();
 
         controls.Player.MeleeAttack.performed += inp => playerAttack.Attack();
@@ -25,15 +32,6 @@ public class PlayerInputController : MonoBehaviour
         controls.Player.Movement.performed += inp => playerMovement.playerMove = inp.ReadValue<Vector2>();
         controls.Player.Movement.canceled += inp => playerMovement.playerMove = Vector2.zero;
 
-    }
-
-    void Start()
-    {
-        playerMovement = GetComponent<PlayerMovement>();
-        playerAttack = GetComponent<PlayerMeleeAttack>();
-        playerShoot = GetComponent<PlayerRangeAttack>();
-        // phoneControl = GetComponent<PhoneUI>();
-        playerDash = GetComponent<PlayerDash>();
     }
 
     private void OnEnable()

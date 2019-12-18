@@ -16,7 +16,6 @@ MonoBehaviour:
   - DualShockGamepad
   - XInputController
   m_UpdateMode: 2
-  m_TimesliceEvents: 1
   m_CompensateForScreenOrientation: 1
   m_FilterNoiseOnCurrent: 0
   m_DefaultDeadzoneMin: 0.125

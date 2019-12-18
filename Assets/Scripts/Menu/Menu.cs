@@ -12,7 +12,6 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine("Blink");
         EventSystem es = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         es.SetSelectedGameObject(null);
         es.SetSelectedGameObject(es.firstSelectedGameObject);
@@ -20,18 +19,7 @@ public class Menu : MonoBehaviour
 
     public void ExitMenu()
     {
-        StopCoroutine("Blink");
         menu.SetActive(false);
         this.enabled = false;
     }
-
-    IEnumerator Blink()
-    {
-        startButton.gameObject.SetActive(false);
-        yield return new WaitForSeconds(1f);
-        startButton.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        StartCoroutine("Blink");
-    }
-
 }

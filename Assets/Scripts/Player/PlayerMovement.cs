@@ -5,19 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Movement Options")]
-    public float playerRunSpeed;
+    [SerializeField] private float playerRunSpeed = 1f;
 
     public bool isFighting;
 
     private Rigidbody2D rb;
     public Vector2 playerMove = Vector2.zero;
 
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Movement(playerMove);
     }

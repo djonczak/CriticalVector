@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class PlayerHP : MonoBehaviour, IDamage
 {
-    public float maxPlayerHP;
-    public float currentPlayerHP;
+    [SerializeField] private float maxHP = 5f;
+    [SerializeField] private float currentHP = 0f;
 
-    void Start()
+    private void Start()
     {
-        currentPlayerHP = maxPlayerHP;
+        currentHP = maxHP;
     }
 
     public void TakeDamage(float amount)
     {
-        currentPlayerHP -= amount;
+        currentHP -= amount;
         Debug.Log(amount);
         PlayerUI.instance.Damaged();
         GetComponent<IEffect>().ShowEffect();
-        if (currentPlayerHP <= 0)
+        if (currentHP <= 0)
         {
             gameObject.SetActive(false);
         }

@@ -11,7 +11,7 @@ public class PlayerBullet : MonoBehaviour
         StartCoroutine("Cooldown", durationTime);
     }
 
-    IEnumerator Cooldown(float time)
+    private IEnumerator Cooldown(float time)
     {
         yield return new WaitForSeconds(time);
         this.gameObject.SetActive(false);
@@ -21,11 +21,13 @@ public class PlayerBullet : MonoBehaviour
     {
         if (collision.tag == "Environment")
         {
+            StopAllCoroutines();
             this.gameObject.SetActive(false);
         }
 
         if (collision.tag == "Enemy")
         {
+            StopAllCoroutines();
             collision.GetComponent<IDamage>().TakeDamage(1);
             this.gameObject.SetActive(false);
         }

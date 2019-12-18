@@ -5,20 +5,20 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     [Header("Melee Attack Settings")]
-    public float attackDamage;
-    public float attackSpeed;
-    public float attackRadius;
+    [SerializeField] private float attackDamage = 1f;
+    [SerializeField] private float attackSpeed = 0.5f;
+    [SerializeField] private float attackRadius = 0.59f;
     public GameObject player;
 
     private Animator anim;
-    float timer;
+    private float timer;
 
-    public void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
     }
 
-    public void Update()
+    private void Update()
     {
         Attack();
     }
@@ -34,7 +34,7 @@ public class EnemyAttack : MonoBehaviour
                 if (timer >= attackSpeed)
                 {
                     anim.SetTrigger("isAttack");
-                    player.GetComponent<PlayerHP>().TakeDamage(attackDamage);
+                    player.GetComponent<IDamage>().TakeDamage(attackDamage);
                     timer = 0f;
                 }
             }

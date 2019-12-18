@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public float moveSpeed;
+    [SerializeField] private float moveSpeed = 0.5f;
     private Animator anim;
     private SpriteRenderer character;
 
     public Transform target;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         character = GetComponent<SpriteRenderer>();
     }
 
-    public void Update()
+    private void Update()
     {
         if (GetComponent<EnemyHP>().isDead == false)
         {
