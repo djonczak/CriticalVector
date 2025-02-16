@@ -243,7 +243,7 @@ TextureImporter:
       213: 21300158
     second: Surrounding_3
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -260,9 +260,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -272,8 +275,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -294,9 +297,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -308,6 +317,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -320,6 +330,46 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
@@ -2015,9 +2065,89 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      24Neon1: 21300000
+      24Neon2: 21300002
+      Automat1: 21300054
+      Automat2: 21300056
+      Barber: 21300128
+      Barrier: 21300098
+      Barrier2: 21300110
+      Billbord1: 21300042
+      Bollard1: 21300048
+      BollardAnimation1: 21300050
+      BollardAnimation2: 21300052
+      ClosetTrashCan: 21300038
+      EnemyParticle: 21300068
+      EnemyParticle2: 21300070
+      EnemySpawner1: 21300066
+      Exterior1: 21300092
+      Exterior2: 21300094
+      Exterior3: 21300096
+      GunNeon1: 21300112
+      GunNeon2: 21300114
+      Info: 21300126
+      Logo1: 21300100
+      LogoLeft: 21300122
+      LogoRight: 21300124
+      Machin1: 21300020
+      Machine1: 21300022
+      Machine2: 21300024
+      MachineIdle: 21300026
+      Medic1: 21300058
+      Medic2: 21300060
+      Neon1: 21300062
+      NeonBuilding1: 21300146
+      NeonBuilding2: 21300148
+      NeonBuilding3: 21300150
+      NeonBuilding5: 21300154
+      NeonBuilding6: 21300156
+      PewBilboard: 21300064
+      PinkLight2: 21300134
+      PinkLightL1: 21300144
+      PinkLightL2: 21300142
+      Poster1: 21300014
+      Poster2: 21300016
+      Poster3: 21300018
+      Ramen1: 21300012
+      Sewers: 21300116
+      Smoke1: 21300082
+      Smoke2: 21300084
+      Snow1: 21300074
+      Snow2: 21300076
+      Snow3: 21300078
+      Snow4: 21300080
+      SnowParticle1: 21300086
+      SnowParticle2: 21300088
+      StreetLamp1: 21300044
+      StreetLamp2: 21300046
+      Surrounding_0: 21300040
+      Surrounding_1: 21300136
+      Surrounding_2: 21300152
+      Surrounding_3: 21300158
+      Taxi1: 21300004
+      Taxi2: 21300006
+      ThotNeon: 21300072
+      Trash1: 21300028
+      Trash2: 21300030
+      TrashCanOpen1: 21300034
+      TrashCanopen2: 21300036
+      TrashOpen: 21300032
+      Tube1: 21300106
+      Tube2: 21300108
+      VRZ2: 21300120
+      VRZIdle: 21300118
+      Vege1: 21300008
+      Vege2: 21300010
+      VehicleStop1: 21300102
+      VehicleStop2: 21300104
+      Water1: 21300090
+      YellowLight1: 21300130
+      YellowLight2: 21300132
+      YellowLightL1: 21300138
+      YellowLightL2: 21300140
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

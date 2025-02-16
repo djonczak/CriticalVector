@@ -150,7 +150,7 @@ TextureImporter:
       213: 7315505087154722468
     second: HBBar
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -167,9 +167,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -179,8 +182,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -201,9 +204,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -215,6 +224,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -227,6 +237,46 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
@@ -1187,9 +1237,54 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      AbilityBackground: -2722578910053471694
+      AbilityCooldown: 6920521978148729054
+      Bullet: -768287472138149725
+      BulletSkill: 8586885197115800619
+      C#: 21300032
+      Contact: 21300012
+      Crosshair: -4905790078254811594
+      CursorEnemy: 21300008
+      CursorLoad: 21300006
+      CursorNornal: 21300004
+      Dash: 6355109479269064622
+      DeathText: 21300048
+      EnemyTekst7: 21300046
+      EnemyText: 21300040
+      EnemyText1: 21300036
+      EnemyText2: 21300038
+      EnemyText4: 21300042
+      EnemyText5: 21300044
+      Experience: 21300034
+      Git: 21300002
+      HBBar: 7315505087154722468
+      HPBackground: 21300064
+      HPBar1Clip1: 8598741497005899431
+      HPBar1Clip2: 6311249057131715697
+      HPBar1Clip3: 2895713815292252119
+      HPBar2Clip1: -7093116833262578213
+      HPBar2Clip2: -4437189997068431560
+      HPBar2Clip3: -4217737949682317116
+      HPBarLast: 7285708167905336192
+      HearthBar: 21300024
+      HearthBarBorder: 21300022
+      LinkedIn: 21300000
+      Melee: -7142961045383142828
+      Minus: 21300020
+      Phone: 21300052
+      Phone1: 21300056
+      Photoshop: 21300026
+      PlayerAttack: 21300050
+      Plus: 21300018
+      Profiler: 21300016
+      Shop: 21300062
+      Skills: 21300014
+      UI: 21300010
+      UI_0: 21300028
+      Unity: 21300030
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
